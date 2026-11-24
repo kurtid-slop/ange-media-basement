@@ -21596,8 +21596,10 @@ i feel like they let greg get away with wayyyy too much. like pam was apologisin
         <a data-act="open" aria-label="Open in Browser" target="_blank" rel="noopener">${icon('<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>')}</a>
       </div><div class="av-x"><button data-act="close" aria-label="Close">${icon('<path d="M18 6 6 18M6 6l12 12"/>')}</button></div></div>
       <img class="av-img" alt="">`;
-    back.querySelector('.av-who span').textContent = name ? name.textContent.trim() : '';
-    back.querySelector('.av-who small').textContent = time ? time.textContent.trim() : '';
+    // visible name only (Discord's username element also holds hidden screen-reader text like the server tag)
+    const shown = name && ([...name.querySelectorAll('[class*="username"]')].find(n => n.offsetParent) || name.firstElementChild || name);
+    back.querySelector('.av-who span').textContent = shown ? shown.textContent.trim() : '';
+    back.querySelector('.av-who small').textContent = time ? time.textContent.replace(/^[\s—-]+/, '').trim() : '';
     back.querySelector('.av-img').src = src;
     back.querySelectorAll('a[data-act]').forEach(x => x.href = src);
     back.addEventListener('click', ev => {
