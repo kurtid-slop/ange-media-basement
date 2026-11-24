@@ -1,0 +1,7 @@
+<svg width="72" height="80" viewBox="0 0 72 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="stroke" fill="white">
+<path d="M0 0H56L72 16V80H0V0Z"/>
+</mask>
+<path d="M0 0H56L72 16V80H0V0Z" stroke-width="2" stroke="#34E2F1" stroke-opacity="0.7" mask="url(#stroke)"/>
+<path d="M20 24L52 56" stroke="#34E2F1"/>
+</svg>
